@@ -1,33 +1,31 @@
-# 🏭 SCADA Industrial Supervision System
+#  SCADA Industrial Supervision System
 
 ### Python / PyQt5 / Siemens S7 / Snap7
 
 > **Industrial SCADA dashboard for real-time supervision of an automated assembly line**
 
----
 
-## 📌 Overview
+##  Overview
 
 This project is an **industrial SCADA supervision application** developed in Python for monitoring an automated assembly line.
 
 The application provides a real-time graphical representation of the production system, including:
 
-* 🏭 Production stations
-* 🤖 Industrial robots
-* 🔄 Turning table
-* 📦 Loading and unloading operations
-* ⏱️ Station cycle status
-* 🟢🟡🔴 Equipment states
-* ⚠️ Operating and fault conditions
-* 📡 Real-time PLC data
+*  Production stations
+*  Industrial robots
+*  Turning table
+*  Loading and unloading operations
+*  Station cycle status
+*  Equipment states
+   Operating and fault conditions
+*  Real-time PLC data
 
 The system communicates with a **Siemens S7 PLC** using the **S7 communication protocol** through the `python-snap7` library.
 
 The graphical supervision interface is developed with **PyQt5**.
 
----
 
-# 🎯 Project Objectives
+#  Project Objectives
 
 The main objectives of this project are:
 
@@ -39,13 +37,11 @@ The main objectives of this project are:
 6. Support testing with a real PLC or a simulated PLC environment.
 7. Separate PLC communication from the graphical user interface.
 
----
 
-# 🏗️ System Architecture
+#  System Architecture
 
 The application follows a modular architecture where the PLC communication layer is separated from the graphical interface.
 
-```text
                     ┌─────────────────────────┐
                     │       Siemens PLC       │
                     │        S7-1200          │
@@ -87,11 +83,9 @@ The application follows a modular architecture where the PLC communication layer
                     │                         │
                     │ Real-time visualization │
                     └─────────────────────────┘
-```
 
----
 
-# 🧩 Project Structure
+#  Project Structure
 
 supervision-SCADA-SMC/
 │
@@ -100,11 +94,9 @@ supervision-SCADA-SMC/
 ├── requirements.txt
 ├── README.md
 ├── image.png             # HMI/SCADA mockup or screenshot
-```
 
----
 
-# 📂 Main Files
+#  Main Files
 
 ## `dashboard.py`
 
@@ -122,7 +114,6 @@ It manages:
 * Equipment status
 * Real-time GUI updates
 
----
 
 ## `mod_communication.py`
 
@@ -142,9 +133,8 @@ Main responsibilities:
 
 This separation makes the application easier to maintain and debug.
 
----
 
-# ⚙️ Technologies
+#  Technologies
 
 | Technology      | Purpose                       |
 | --------------- | ----------------------------- |
@@ -157,9 +147,8 @@ This separation makes the application easier to maintain and debug.
 | Ethernet TCP/IP | Network communication         |
 | VS Code         | Development environment       |
 
----
 
-# 📦 Requirements
+#  Requirements
 
 The project requires:
 
@@ -181,7 +170,7 @@ pip install -r requirements.txt
 
 ---
 
-# 🚀 Installation
+#  Installation
 
 ## 1. Clone the repository
 
@@ -241,9 +230,8 @@ and:
 pip show python-snap7
 ```
 
----
 
-# 🔌 PLC Communication
+#  PLC Communication
 
 The SCADA application communicates with the Siemens PLC through the S7 protocol.
 
@@ -286,11 +274,10 @@ RACK = 0
 SLOT = 1
 ```
 
-> ⚠️ The IP address, rack, slot and DB configuration must match the actual PLC configuration in TIA Portal.
+>  The IP address, rack, slot and DB configuration must match the actual PLC configuration in TIA Portal.
 
----
 
-# 🗄️ PLC Data Block
+#  PLC Data Block
 
 The SCADA application reads process information from the PLC Data Block.
 
@@ -314,9 +301,8 @@ The Data Block contains information related to:
 
 The exact addresses must correspond to the PLC program.
 
----
 
-# 📊 Data Processing
+#  Data Processing
 
 The communication module reads raw PLC data and converts it into usable Python values.
 
@@ -346,9 +332,8 @@ SCADA widgets
 
 This architecture avoids putting PLC communication logic directly inside the graphical interface.
 
----
 
-# 🤖 Robot Supervision
+#  Robot Supervision
 
 The dashboard provides visual information about robot states.
 
@@ -366,9 +351,8 @@ The exact interpretation of `TRUE` and `FALSE` depends on the PLC signal mapping
 
 Therefore, the PLC variable definition must always be checked before modifying the visualization logic.
 
----
 
-# 🔄 Turning Table Logic
+#  Turning Table Logic
 
 The Turning Table follows the production sequence defined by the PLC.
 
@@ -400,9 +384,8 @@ Turning Table PAUSED / WAITING
 
 This prevents the table from rotating while one of the required production operations is still active.
 
----
 
-# 📦 Loading / Unloading
+#  Loading / Unloading
 
 The SCADA interface displays the status of loading and unloading operations.
 
@@ -420,9 +403,8 @@ These signals are obtained directly from the PLC.
 
 The dashboard uses them to provide the operator with a visual representation of the production sequence.
 
----
 
-# ⏱️ Cycle Monitoring
+#  Cycle Monitoring
 
 The SCADA dashboard can display cycle-related information for the production stations.
 
@@ -434,9 +416,9 @@ The objective is to provide operators and engineers with a quick overview of:
 * Waiting conditions
 * Production sequence
 
----
 
-# 🧪 Simulation with PLCSIM Advanced
+
+#  Simulation with PLCSIM Advanced
 
 The application can be tested without a physical PLC using **Siemens PLCSIM Advanced**, provided that the simulation is configured to expose the PLC communication interface required by the application.
 
@@ -479,9 +461,8 @@ Before launching the SCADA application, verify:
 * The required DB exists
 * The DB variables are accessible
 
----
 
-# 🌐 Network Test
+#  Network Test
 
 Before testing the Python application, verify basic network connectivity.
 
@@ -497,7 +478,7 @@ A successful ping confirms basic IP connectivity.
 
 However:
 
-> ⚠️ A successful ping does not guarantee that S7 communication is correctly configured.
+>  A successful ping does not guarantee that S7 communication is correctly configured.
 
 The following parameters must also be verified:
 
@@ -511,9 +492,8 @@ DB size
 PLC access configuration
 ```
 
----
 
-# ▶️ Running the Application
+#  Running the Application
 
 After configuring the PLC connection, run:
 
@@ -523,11 +503,10 @@ python dashboard.py
 
 The SCADA dashboard should start and begin displaying the PLC process information.
 
----
 
-# 🛠️ Troubleshooting
+#  Troubleshooting
 
-## ❌ Python cannot connect to the PLC
+##  Python cannot connect to the PLC
 
 Check:
 
@@ -542,9 +521,8 @@ Check:
 8. PLCSIM Advanced configuration
 ```
 
----
 
-## ❌ Ping works but Snap7 does not connect
+##  Ping works but Snap7 does not connect
 
 A successful ping only verifies network-level connectivity.
 
@@ -559,9 +537,8 @@ PLC access settings
 PLCSIM Advanced configuration
 ```
 
----
 
-## ❌ Dashboard starts but values do not update
+##  Dashboard starts but values do not update
 
 Check:
 
@@ -575,9 +552,8 @@ PLC program
 Communication update cycle
 ```
 
----
 
-## ❌ Application freezes during PLC communication
+##  Application freezes during PLC communication
 
 The communication module should handle connection/read errors without blocking the graphical interface.
 
@@ -591,9 +567,8 @@ Network configuration
 Reconnection logic
 ```
 
----
 
-# 🔐 Safety and Industrial Considerations
+#  Safety and Industrial Considerations
 
 This project is intended primarily for **supervision and monitoring**.
 
@@ -608,29 +583,27 @@ Before connecting the application to a production PLC:
 
 The SCADA application should not replace the PLC's safety system or emergency-stop architecture.
 
----
 
-# 🔧 Development Recommendations
+#  Development Recommendations
 
 For future development, the project can be extended with:
 
-* 📈 Production statistics
-* 📊 OEE / TRS monitoring
-* 📋 Alarm history
-* 🗃️ Historical data storage
-* 📅 Production reports
-* 👤 User authentication
-* 🔔 Alarm notifications
-* 📡 OPC UA communication
-* 🗄️ SQL database
-* 📈 Grafana integration
-* 🖥️ Multi-line supervision
-* 🔄 Automatic PLC reconnection
-* 📝 Event logging
+*  Production statistics
+*  OEE / TRS monitoring
+*  Alarm history
+*  Historical data storage
+*  Production reports
+*  User authentication
+*  Alarm notifications
+*  OPC UA communication
+*  SQL database
+*  Grafana integration
+*  Multi-line supervision
+*  Automatic PLC reconnection
+*  Event logging
 
----
 
-# 📈 Possible Future Architecture
+#  Possible Future Architecture
 
 A more advanced version could use:
 
@@ -659,11 +632,9 @@ A more advanced version could use:
        │ Operator     │         │ Historical   │
        │ Dashboard    │         │ Analytics    │
        └──────────────┘         └──────────────┘
-```
 
----
 
-# 📝 Configuration Checklist
+#  Configuration Checklist
 
 Before starting the application:
 
@@ -683,9 +654,7 @@ Before starting the application:
 [ ] SCADA application started
 ```
 
----
-
-# 📁 Example `requirements.txt`
+#  Example `requirements.txt`
 
 ```text
 PyQt5
@@ -698,9 +667,9 @@ Install with:
 pip install -r requirements.txt
 ```
 
----
 
-# 👩‍💻 Author
+
+#  Author
 
 **Salma Chouchane**
 
@@ -715,17 +684,15 @@ Project developed as part of an industrial internship/project involving:
 * Industrial communication
 * Siemens systems
 
----
 
-# 📜 License
+#  License
 
 This project is intended for educational, development and industrial supervision purposes.
 
 Before deploying the software in a production environment, the PLC communication, process logic and safety requirements must be fully validated.
 
----
 
-# ⭐ Project
+#  Project
 
 If this project is useful to you, consider giving the repository a ⭐ on GitHub.
 
