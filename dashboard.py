@@ -24,7 +24,7 @@ from PyQt5.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-from mod_communication1 import PLCConnector
+from mod_communication import PLCConnector
 
 # ============================================================================
 # CONFIGURATION
